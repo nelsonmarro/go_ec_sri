@@ -1,0 +1,6 @@
+*.p12
+*.pfx
+.env*
+coverage*
+*.out
+/bin

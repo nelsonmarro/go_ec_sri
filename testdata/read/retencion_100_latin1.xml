@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<comprobanteRetencion id="comprobante" version="1.0.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>COMERCIAL PEÑA CÍA. LTDA.</razonSocial>
+    <ruc>1790000000001</ruc>
+    <claveAcceso>0503202507179000000000120020010000000771234567818</claveAcceso>
+    <codDoc>07</codDoc>
+    <estab>002</estab>
+    <ptoEmi>001</ptoEmi>
+    <secuencial>000000077</secuencial>
+    <dirMatriz>Av. Colón 45</dirMatriz>
+  </infoTributaria>
+  <infoCompRetencion>
+    <fechaEmision>05/03/2025</fechaEmision>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionSujetoRetenido>04</tipoIdentificacionSujetoRetenido>
+    <razonSocialSujetoRetenido>NEGOCIO DE PRUEBA S.A.</razonSocialSujetoRetenido>
+    <identificacionSujetoRetenido>1790000002001</identificacionSujetoRetenido>
+    <periodoFiscal>03/2025</periodoFiscal>
+  </infoCompRetencion>
+  <impuestos>
+    <impuesto>
+      <codigo>1</codigo>
+      <codigoRetencion>303</codigoRetencion>
+      <baseImponible>100.00</baseImponible>
+      <porcentajeRetener>10</porcentajeRetener>
+      <valorRetenido>10.00</valorRetenido>
+      <codDocSustento>01</codDocSustento>
+      <numDocSustento>002001000004567</numDocSustento>
+      <fechaEmisionDocSustento>03/03/2025</fechaEmisionDocSustento>
+    </impuesto>
+    <impuesto>
+      <codigo>2</codigo>
+      <codigoRetencion>1</codigoRetencion>
+      <baseImponible>15.00</baseImponible>
+      <porcentajeRetener>30</porcentajeRetener>
+      <valorRetenido>4.50</valorRetenido>
+      <codDocSustento>01</codDocSustento>
+      <numDocSustento>002001000004567</numDocSustento>
+      <fechaEmisionDocSustento>03/03/2025</fechaEmisionDocSustento>
+    </impuesto>
+  </impuestos>
+</comprobanteRetencion>

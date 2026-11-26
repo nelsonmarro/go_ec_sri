@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autorizacion>
+  <estado>AUTORIZADO</estado>
+  <numeroAutorizacion>1211202607179000000000120010030000000091234567815</numeroAutorizacion>
+  <fechaAutorizacion>2026-11-12T09:15:00-05:00</fechaAutorizacion>
+  <ambiente>PRODUCCIÓN</ambiente>
+  <comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<comprobanteRetencion id="comprobante" version="2.0.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>CLIENTE &amp; HIJOS S.A.</razonSocial>
+    <ruc>1790000000001</ruc>
+    <claveAcceso>1211202607179000000000120010030000000091234567815</claveAcceso>
+    <codDoc>07</codDoc>
+    <estab>001</estab>
+    <ptoEmi>003</ptoEmi>
+    <secuencial>000000009</secuencial>
+    <dirMatriz>Calle Sucre 123, Quito</dirMatriz>
+  </infoTributaria>
+  <infoCompRetencion>
+    <fechaEmision>12/11/2026</fechaEmision>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionSujetoRetenido>04</tipoIdentificacionSujetoRetenido>
+    <parteRel>NO</parteRel>
+    <razonSocialSujetoRetenido>NEGOCIO DE PRUEBA S.A.</razonSocialSujetoRetenido>
+    <identificacionSujetoRetenido>1790000002001</identificacionSujetoRetenido>
+    <periodoFiscal>11/2026</periodoFiscal>
+  </infoCompRetencion>
+  <docsSustento>
+    <docSustento>
+      <codSustento>01</codSustento>
+      <codDocSustento>01</codDocSustento>
+      <numDocSustento>001002000000123</numDocSustento>
+      <fechaEmisionDocSustento>10/11/2026</fechaEmisionDocSustento>
+      <pagoLocExt>01</pagoLocExt>
+      <totalSinImpuestos>33.33</totalSinImpuestos>
+      <importeTotal>38.32</importeTotal>
+      <impuestosDocSustento>
+        <impuestoDocSustento>
+          <codImpuestoDocSustento>2</codImpuestoDocSustento>
+          <codigoPorcentaje>4</codigoPorcentaje>
+          <baseImponible>33.33</baseImponible>
+          <tarifa>15</tarifa>
+          <valorImpuesto>4.99</valorImpuesto>
+        </impuestoDocSustento>
+      </impuestosDocSustento>
+      <retenciones>
+        <retencion>
+          <codigo>1</codigo>
+          <codigoRetencion>312</codigoRetencion>
+          <baseImponible>33.33</baseImponible>
+          <porcentajeRetener>1.75</porcentajeRetener>
+          <valorRetenido>0.58</valorRetenido>
+        </retencion>
+        <retencion>
+          <codigo>2</codigo>
+          <codigoRetencion>2</codigoRetencion>
+          <baseImponible>4.99</baseImponible>
+          <porcentajeRetener>70</porcentajeRetener>
+          <valorRetenido>3.49</valorRetenido>
+        </retencion>
+      </retenciones>
+      <pagos>
+        <pago>
+          <formaPago>20</formaPago>
+          <total>38.32</total>
+        </pago>
+      </pagos>
+    </docSustento>
+  </docsSustento>
+</comprobanteRetencion>]]></comprobante>
+</autorizacion>

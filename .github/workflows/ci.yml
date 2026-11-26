@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,20 +15,27 @@ jobs:
       matrix:
         go: ["1.26.x", "1.27.x"]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-go@v5.5.0
         with:
           go-version: ${{ matrix.go }}
       - name: Install xmllint
         run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - name: gofmt
+        run: test -z "$(gofmt -l .)"
       - run: go vet ./...
       - name: staticcheck
-        run: go run honnef.co/go/tools/cmd/staticcheck@latest ./...
+        run: go run honnef.co/go/tools/cmd/staticcheck@v0.8.2 ./...
       - run: go test -race ./...
       - name: govulncheck
-        run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
-      - uses: gitleaks/gitleaks-action@v2
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.10.0 ./...
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

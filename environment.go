@@ -16,6 +16,9 @@ type DocType string
 const (
 	// DocInvoice is the invoice (factura), code 01.
 	DocInvoice DocType = "01"
+	// DocSalesNote is the sales note (nota de venta), code 02. It is only a
+	// withholding's support document: this package does not issue it.
+	DocSalesNote DocType = "02"
 	// DocCreditNote is the credit note (nota de crédito), code 04.
 	DocCreditNote DocType = "04"
 	// DocWithholding is the withholding certificate (comprobante de retención), code 07.

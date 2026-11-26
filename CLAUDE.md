@@ -4,8 +4,12 @@ Librería pública (MIT) de facturación electrónica del SRI de Ecuador, extra�
 
 ## Paquetes
 
-- `sri` (raíz): clave de acceso, tipos de documento y ambientes, constructores de XML, validación y firma.
-- Los otros tres paquetes (definidos en la spec) cubren la firma XAdES-BES, el cliente SOAP (`soap`, único con red, mediante un `*http.Client` inyectado) y el RIDE/ayudas de lectura.
+- `sri` (raíz): clave de acceso, RUC y cédula, tipos y ambientes, constructores de XML (factura 01, nota de crédito 04, retención 07), validación con códigos estables, lectura de los tres comprobantes, sobre autorizado, `Explain`/`ExplainFor` y `ReissuePlan`. `sri.Today()` entrega la fecha de Ecuador para `Header.IssueDate`; la librería imprime la fecha de calendario tal como viene y no la convierte.
+- `sign`: firma XAdES-BES desde un `.p12` en memoria e `Inspect`.
+- `soap`: cliente de recepción y autorización (único con red, mediante un `*http.Client` inyectado); errores clasificados en español y `Retryable`; sin reintentos. `Authorize` rechaza una clave de otro ambiente.
+- `ride`: RIDE en PDF de factura, nota de crédito y retención; exige el sobre `<autorizacion>` con número y fecha.
+
+`FinalConsumerLimit()` y `soap.DefaultURLs()` son funciones (solo lectura); no exponer variables globales mutables.
 
 ## Reglas
 
@@ -14,12 +18,13 @@ Librería pública (MIT) de facturación electrónica del SRI de Ecuador, extra�
 3. **Español** en los mensajes al usuario (`ValidationError.Message`, explicaciones); **inglés técnico** en código y comentarios. Ningún mensaje menciona a Verith ni sus pantallas.
 4. Ninguna función lee ni escribe archivos ni guarda estado; solo `soap` hace red.
 5. **Sin datos reales ni secretos**: RUC, cédulas, nombres, direcciones, correos y claves de acceso son ficticios. Los RUC ficticios son válidos en estructura (13 dígitos que terminan en `001`) y las cédulas pasan el módulo 10. Sin `.p12` ni `.env` en el repo; la clave del certificado de prueba es la constante `testPassphrase = "prueba"`.
-6. XML de salida validado con `xmllint` contra los XSD oficiales y con archivos golden.
+6. XML de salida validado con `xmllint` contra los XSD oficiales y con archivos golden; bajo CI (`CI` definida) la falta de `xmllint` hace fallar las pruebas en lugar de saltarlas.
 7. Commits convencionales, descripción en español.
 
 ## Verificación
 
 ```
-go build ./... && go vet ./... && staticcheck ./... && go test -race ./...
-govulncheck ./...
+go build ./... && go vet ./... && go run honnef.co/go/tools/cmd/staticcheck@latest ./... && go test -race -cover ./...
+go run golang.org/x/vuln/cmd/govulncheck@latest ./...
 ```
+(El binario local de `staticcheck` falla con go1.27: se ejecuta con `go run`. El CI fija las versiones.)
